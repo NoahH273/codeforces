@@ -29,7 +29,7 @@ public class Main {
             int leftShift = 0;
             int rightShift = 0;
 
-            while (left <= right) {
+            while (left <= right + 1) {
                 if (minCount <= maxCount) {
                     int iterations = unique[left] - leftShift - unique[0];
                     leftShift += iterations;
@@ -43,10 +43,6 @@ public class Main {
                     maxCount += counts.get(unique[right]);
                     right--;
                 }
-            }
-
-            if (unique.length >= 2) {
-                cost += Math.min(minCount, maxCount) * (unique[unique.length - 1] - rightShift - leftShift - unique[0]);
             }
 
             int ops = unique[unique.length - 1] - unique[0];
