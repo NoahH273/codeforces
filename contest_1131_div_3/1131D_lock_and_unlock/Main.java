@@ -23,21 +23,21 @@ public class Main {
 
             int left = 1;
             int right = unique.length - 2;
-            int minCount = counts.get(unique[0]);
-            int maxCount = counts.get(unique[unique.length - 1]);
-            int cost = 0;
+            long minCount = counts.get(unique[0]);
+            long maxCount = counts.get(unique[unique.length - 1]);
+            long cost = 0;
             int leftShift = 0;
             int rightShift = 0;
 
             while (left <= right + 1) {
                 if (minCount <= maxCount) {
-                    int iterations = unique[left] - leftShift - unique[0];
+                    long iterations = unique[left] - leftShift - unique[0];
                     leftShift += iterations;
                     cost += minCount * iterations;
                     minCount += counts.get(unique[left]);
                     left++;
                 } else {
-                    int iterations = unique[unique.length - 1] - rightShift - unique[right];
+                    long iterations = unique[unique.length - 1] - rightShift - unique[right];
                     cost += maxCount * iterations;
                     rightShift += iterations;
                     maxCount += counts.get(unique[right]);
